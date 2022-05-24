@@ -25,7 +25,7 @@ local UICorner_7 = Instance.new("UICorner")
 --Properties:
 
 BackdoorFinder.Name = "BackdoorFinder"
-BackdoorFinder.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+BackdoorFinder.Parent = game:GetService("CoreGui")
 BackdoorFinder.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 BackdoorFinder.ResetOnSpawn = false
 
